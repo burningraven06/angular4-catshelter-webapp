@@ -1,0 +1,62 @@
+<!-- <cat-detail [cat]='selectedCat'></cat-detail> -->
+<div class='row'>
+	<div class='small-12 medium-12 large-12 columns'>
+		<h2 class='marg-top-bot-3 float-left'> Cats in our Shelter</h2>
+		<button class='success button marg-top-bot-3 float-right' (click)='showCatAddForm()' > Add New Cat to Shelter </button>
+	</div>
+	<div class='small-12 medium-12 large-12 columns' *ngIf=" selectedCat " >
+		<p> {{selectedCat.name}} is a {{selectedCat.color | lowercase}} cat from {{selectedCat.found_location}}</p>
+		<button class='button warning' (click) = 'goToCatInfo()'> {{selectedCat.name }}'s Profile</button>
+	</div>
+
+</div>
+
+<div class='row'*ngIf='displayCatAddForm'>
+	<div class='small-12 medium-6 medium-centered large-6 large-centered columns'>
+		<div class='small-12 medium-12 large-12 columns'>
+			<div class='float-left'> <h5> Place Rescued Cat in Shelter</h5> </div>
+			<div class='float-right'> <button class='button secondary' (click)='hideCatAddForm()'> Cancel</button></div>
+		</div>
+		<div class='small-12 medium-12 large-12 columns'>
+			<form [formGroup]='addCatForm' ngvalidate (ngSubmit)='saveCat(addCatForm.value, addCatForm.valid)'>
+				<label> Name: </label> <input formControlName="name" placeholder='Name' type='text' />
+				<p [hidden]="addCatForm.controls.name.valid || addCatForm.controls.name.pristine && !submitted"> <span class='label warning'> **Name is required (Minimum 3 characters) </span> </p> 
+
+				<label> Color: </label> <input formControlName="color" placeholder="Color" type='text'/>
+				<p [hidden]="addCatForm.controls.color.valid || addCatForm.controls.color.pristine && !submitted"> <span class='label warning'> **Color is required (Minimum 3 characters) </span></p>
+
+				<label> Rescued From: </label> <input formControlName="found_location" placeholder = "Rescued From" type='text'/>
+				<p [hidden]="addCatForm.controls.found_location.valid || addCatForm.controls.found_location.pristine && !submitted"> <span class='label warning'> **Please tell us where the cat was found </span> </p>
+
+				<label> Rescued By: </label> <input formControlName='found_by' placeholder = "Saint who Rescued Cat" type='text'/>
+				<p [hidden]="addCatForm.controls.found_by.valid || addCatForm.controls.found_by.pristine && !submitted"> <span class='label warning'> **Please tell us who found the cat </span></p>
+
+				<label> Health Status
+					<select formControlName='isHealthy'>
+						<option value = 'true'> All OK</option>
+						<option value = 'false'> Suffered Injuries</option>
+					</select>
+				</label>
+				<p [hidden]="addCatForm.controls.isHealthy.valid || addCatForm.controls.isHealthy.pristine && !submitted"> <span class='label warning'> **Please mention cat's status </span></p>
+
+				<button class='success button expanded'> Add</button>	
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class='row'>	
+	<div class='small-4 medium-4 large-2 columns ' *ngFor = ' let cat of cats' (click) = "onSelect(cat)" [class.chosen]="cat === selectedCat" title='Click for details of {{ cat.name}}'>
+		<div class='card'>
+			<img src='/assets/cat-icon.png'>
+			<div class='card-section'>
+				<h5> 
+					<span class='badge float-left marg-right-3'> {{ cat.id }} </span> {{ cat.name}}	
+					<span class='badge warning float-right' (click) = 'removeCat(cat); $event.stopPropagation()' title='Delete {{cat.name}}'> X </span>
+				</h5>
+				<p> {{cat.color}}, <span *ngIf = 'cat.isHealthy; else cat_not_fine'> Fine</span> </p>
+				<ng-template #cat_not_fine> Injured </ng-template>
+			</div>
+		</div>
+	</div>
+</div>

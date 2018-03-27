@@ -1,0 +1,39 @@
+<div class='row' id='cat-selected' *ngIf='cat'>
+
+	<div class='small-12 medium-12 large-12 columns'>
+		<button class='button float-right' (click) = 'goBack()'> Back</button>
+	</div>
+
+	<div class='medium-4 small-12 large-4 columns'>
+		<div class='text-center'>
+			<img  src='/assets/cat-icon.png'>
+			<h3 class='text-center'> 	<strong> {{cat.name}} </strong>
+			</h3>	
+		</div>
+	</div> 
+
+	<div class='medium-4 small-12 large-4 columns' id='cat-info-div'>
+		<h3 class='text-center'> Profile Summary</h3>
+		<p> <label> ID: </label> <strong> {{ cat.id}} </strong></p>
+		<p> <label> Name: </label> <strong> {{ cat.name}} </strong></p>
+		<p> <label> Color: </label> <strong> {{ cat.color}}</strong></p>
+		<p> <label> Rescued From: </label> <strong> {{ cat.found_location}}</strong></p>
+		<p> <label> Rescued By: </label> <strong> {{ cat.found_by}}</strong></p>
+		<p> <label> Health Status: </label> <strong> <span *ngIf = 'cat.isHealthy; else cat_not_fine'> Fine</span> </strong></p>
+		<ng-template #cat_not_fine> Injured</ng-template>
+	</div>
+	<div class='medium-4 large-4 small-12 columns'>
+		<h3 class='text-center'> Update {{ cat.name}}</h3>
+		<label> Name: </label> <input [(ngModel)] = ' cat.name' placeholder='Name' type='text' /> 
+		<label> Color: </label> <input [(ngModel)] =' cat.color' placeholder="Color" type='text'/>
+		<label> Rescued From: </label> <input [(ngModel)] =' cat.found_location' placeholder = "Rescued From" type='text'/>
+		<label> Rescued By: </label> <input [(ngModel)] = ' cat.found_by' placeholder = "Saint who Rescued Cat" type='text'/>
+		<label> Health Status
+			<select [(ngModel)] = ' cat.isHealthy'>
+				<option value = 'true'> All OK</option>
+				<option value = 'false'> Suffered Injuries</option>
+			</select>
+		</label>
+		<button class='success button expanded' (click) = "saveCatDetails()"> Update</button>
+	</div>
+</div>

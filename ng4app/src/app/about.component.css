@@ -1,0 +1,24 @@
+.marg-top-bot-5{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	}
+.blue-underline{
+	border-bottom: 1px solid #1b96fe;
+	padding-bottom: 1%;
+}
+.marg-top-5{
+	margin-top: 5%;
+}
+.marg-left-5{
+	margin-left: 5%;
+}
+.marg-left-10{
+	margin-left: 10%;
+}
+.marg-top-10{
+	margin-top: 10%;
+}
+.builtbyText{
+	font-family: mono;
+	font-weight: bold;
+}

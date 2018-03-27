@@ -1,0 +1,18 @@
+<div class='row'>
+	<h2 class='text-center'> Search Cats</h2>
+	<div class='small-12 medium-6 large-6 columns'>
+		<h5> By Name</h5>
+		<input #searchBox1 (keyup)='searchByName(searchBox1.value)' type='text' placeholder="Type Name of Cat" />
+		<div *ngFor = 'let cat of catsByName | async' (click) = 'goToDetail(cat)'>
+			<span class='search-results'> {{ cat.name }} </span>
+		</div>
+	</div>	
+	<div class='small-12 medium-6 large-6 columns'>
+		<h5> By Color</h5>
+		<input #searchBox2 (keyup)='searchByColor(searchBox2.value)' type='text' placeholder='Type Color of Cat' />
+		<div *ngFor = 'let cat of catsByColor | async' (click) = 'goToDetail(cat)'>
+			<span class='search-results'> {{ cat.name }} </span>
+		</div>
+	</div>
+</div>
+

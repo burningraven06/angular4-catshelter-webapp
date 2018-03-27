@@ -1,0 +1,17 @@
+<cat-search></cat-search>
+<div class='row'>
+	<div class='small-12 medium-12 large-12 columns'>
+		<h2 id='dashboard_heading'> Recently Rescued Cats</h2>
+	</div>
+
+	<div *ngFor = "let cat of cats" [routerLink] ="['/cat-info', cat.id]" class='small-4 medium-4 large-2 columns' title='Click for details of {{ cat.name}}'>
+		<div class='card'>
+			<img src='/assets/cat-icon.png'>
+			<div class='card-section'>
+				<h5> <span class='badge text-left marg-right-3'> {{ cat.id }} </span> {{ cat.name}}</h5>
+				<p> {{cat.color}}, <span *ngIf = 'cat.isHealthy; else cat_not_fine'> Fine</span> </p>
+				<ng-template #cat_not_fine> Injured </ng-template>
+			</div>
+		</div>
+	</div>
+</div>
