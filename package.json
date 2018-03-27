@@ -1,0 +1,17 @@
+{
+  "name": "angular4app-catshelter",
+  "version": "1.0.0",
+  "description": "Angular 4 App",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Toufiq",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "engines": {
+    "node": "8.10.0"
+  }
+}
