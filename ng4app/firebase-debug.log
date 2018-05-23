@@ -1,0 +1,22 @@
+[debug] [2018-05-23T08:25:50.907Z] ----------------------------------------------------------------------
+[debug] [2018-05-23T08:25:50.909Z] Command:       /usr/bin/node /usr/bin/firebase open hosting:site
+[debug] [2018-05-23T08:25:50.909Z] CLI Version:   3.18.5
+[debug] [2018-05-23T08:25:50.909Z] Platform:      linux
+[debug] [2018-05-23T08:25:50.909Z] Node Version:  v8.11.2
+[debug] [2018-05-23T08:25:50.909Z] Time:          Wed May 23 2018 14:25:50 GMT+0600 (+06)
+[debug] [2018-05-23T08:25:50.909Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-23T08:25:50.915Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-05-23T08:25:50.915Z] > authorizing via signed-in user
+[debug] [2018-05-23T08:25:50.916Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/ng4alexandercatshelter  
+  
+ Wed May 23 2018 14:25:50 GMT+0600 (+06)
+[debug] [2018-05-23T08:25:52.788Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-23T08:25:52.789Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/ng4alexandercatshelter/tokens  
+  
+ Wed May 23 2018 14:25:52 GMT+0600 (+06)
+[debug] [2018-05-23T08:26:02.807Z] Error: getaddrinfo ENOTFOUND admin.firebase.com admin.firebase.com:443
+    at errnoException (dns.js:50:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:92:26)
+[error] 
+[error] Error: Server Error. getaddrinfo ENOTFOUND admin.firebase.com admin.firebase.com:443
