@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Toufiq",
+  "private": true,
+  "author": "Toufiq (https://twitter.com/burningraven06)",
+  "description" : "Angular4 app made using Zurb-Foundation6",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3"
